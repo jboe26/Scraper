@@ -32,15 +32,9 @@ app.set("view engine", "handlebars");
 
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/scraper");
-const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/scraper";
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-var db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function() {
-  console.log("Connected to Mongoose!");
-});
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/article";
+mongoose.connect(MONGODB_URI);
 
 // Routes
 
