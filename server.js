@@ -14,6 +14,8 @@ var app = express();
 
 // Configure middleware
 
+// 
+
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Parse request body as JSON
@@ -30,11 +32,18 @@ app.set("view engine", "handlebars");
 
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/Scraper", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/scraper");
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/scraper";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function() {
+  console.log("Connected to Mongoose!");
+});
 
 // Routes
 
-// A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
   axios.get("http://www.reddit.com/").then(function(response) {
