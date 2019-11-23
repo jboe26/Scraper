@@ -39,6 +39,15 @@ mongoose.connect(MONGODB_URI);
 // Routes
 
 app.get("/scrape", function(req, res) {
+  app.get("/", function(req, res) {
+    article.all(function(data) {
+      var hbsObject = {
+        article: data
+      };
+      console.log(hbsObject);
+      res.render("index", hbsObject);
+    });
+  
   // First, we grab the body of the html with axios
   axios.get("http://www.reddit.com/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -73,7 +82,7 @@ console.log(result)
     res.send("Scrape Complete");
   });
 });
-
+});
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
   // Grab every document in the Articles collection
