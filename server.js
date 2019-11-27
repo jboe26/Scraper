@@ -89,7 +89,7 @@ app.get("/articles", function (req, res) {
   // Grab every document in the Articles collection
 
   /**
-   * Jake's comment
+   
    * 
    * Article is not responding with json 
    * value to send back to app.js
