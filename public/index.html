@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <title>Scraping With Mongoose</title>
   <style>
-    /* body { background-color: #F2F6D0 } */
+    body {
+      background-color: white;
+      text-align: left;
+    }
+
     #wrapper {
       width: 960px;
       margin-left: auto;
@@ -41,29 +42,32 @@
     }
 
     textarea {
-      height: 200px;
+      height: 300px;
       font-size: 18px;
     }
 
-    */ .jumbotron {
+    #btn-scrape, #btn-articles {
       text-align: center;
-      margin-top: 30px;
-    }
+    } 
   </style>
 </head>
 
 <body>
   <div id="wrapper">
-    <div class="jumbotron">
-      <h1 class="display-4">Mongo Scraper</h1>
-      <a class="btn btn-primary btn-lg" href="#" role="button" id="article">Scrape New Article!</a>
-    </div>
+    <h1>Mongo Scraper</h1>
 
-    <div id="articles"></div>
-    <div id="notes"></div>
-  </div>
- 
+    <h2><a href="/scrape" id="btn-scrape">Scrape new article</a></h2> <br> <br>
+    <h2><a href="/articles" id="btn-articles">Article list</a></h2>
+    
+    <p id="articles"></p>
+
+    <p id="notes"></p>
+    <br><br>
   
+
+   
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="app.js"></script>
 </body>
 
